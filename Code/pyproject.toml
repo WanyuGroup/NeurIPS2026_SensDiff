@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nsforge"
+version = "0.1.0"
+description = "Composable neuro-symbolic constraints and gradient guidance."
+readme = "NSFORGE.md"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.1.0",
+  "numpy",
+]
+
+[project.optional-dependencies]
+molecular = [
+  "rdkit-pypi",
+]
+geoldm = [
+  "scipy",
+  "wandb",
+  "matplotlib",
+  "networkx",
+]
+dev = [
+  "pytest",
+]
+
+[tool.setuptools.packages.find]
+include = ["nsforge*", "ns4*"]
+exclude = ["tests*"]
